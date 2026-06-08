@@ -26,9 +26,15 @@
     <h2>Lista de produtos</h2>
     
     @if($produtos->isEmpty())
-        
+        <p>Nenhum produto cadastrado</p>
     @else
-
+        <ul>
+            @foreach($produtos as $produto)
+                <li>
+                    {{ $produto->nome }} - R$ {{ number_format($produto->preco, 2, ',' , '.') }} - Estoque: {{ $produto->estoque }}
+                </li>
+            @endforeach
+        </ul>
     @endif
     
 </body>
